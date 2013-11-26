@@ -10,9 +10,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
-			Intent localIntent = new Intent();
-			localIntent.setClassName("com.android.settings", "com.android.settings.Settings$AppOpsSummaryActivity");
-			startActivity(localIntent);
+			Intent intent = new Intent();
+			if (android.os.Build.VERSION.SDK_INT == 18) {
+				intent.setClassName("com.android.settings", "com.android.settings.Settings$AppOpsSummaryActivity");
+			} else {
+				intent.setClassName("com.android.settings", "com.android.settings.Settings");
+				intent.setAction("android.intent.action.MAIN");
+				intent.addCategory("android.intent.category.DEFAULT");
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+				intent.putExtra(":android:show_fragment", "com.android.settings.applications.AppOpsSummary");
+			}
+			startActivity(intent);
 			return;
 		} catch (Exception localException) {
 			Toast.makeText(this, R.string.launch_error, Toast.LENGTH_SHORT).show();
