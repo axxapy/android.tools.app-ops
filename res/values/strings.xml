@@ -2,5 +2,5 @@
 <resources>
     <string name="app_name">App Ops Permission Manager</string>
     <string name="launcher_string">Permission Manager</string>
-    <string name="launch_error">Permission activity not found. Is this android 4.3?</string>
+    <string name="launch_error">Permission activity not found.</string>
 </resources>
