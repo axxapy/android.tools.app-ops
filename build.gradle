@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:1.0.0'
+	}
+}
+
+android {
+	compileSdkVersion 21
+	buildToolsVersion "21.1.2"
+
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			java.srcDirs = ['src']
+			//resources.srcDirs = ['src']
+			aidl.srcDirs = ['src']
+			renderscript.srcDirs = ['src']
+			res.srcDirs = ['res']
+		}
+
+		debug.setRoot('build-types/debug')
+		release.setRoot('build-types/release')
+	}
+}

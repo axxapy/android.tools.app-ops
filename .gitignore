@@ -3,3 +3,7 @@ gen
 .settings
 .classpath
 .project
+.gradle
+local.properties
+build
+*.iml

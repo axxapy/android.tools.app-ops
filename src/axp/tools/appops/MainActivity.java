@@ -19,12 +19,10 @@ public class MainActivity extends Activity {
 				intent.addCategory("android.intent.category.DEFAULT");
 				intent.putExtra(":android:show_fragment", "com.android.settings.applications.AppOpsSummary");
 			}
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 			startActivity(intent);
-			return;
 		} catch (Exception localException) {
 			Toast.makeText(this, R.string.launch_error, Toast.LENGTH_SHORT).show();
-			return;
 		} finally {
 			finish();
 		}
